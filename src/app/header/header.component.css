@@ -1,9 +1,17 @@
 header {
-  background-color: aquamarine;
-  padding-inline: 10%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it covers the full width */
+  background: linear-gradient(to top, #810bd1, purple);
+  /* padding-inline:  */
   display: flex;
   height: 50px;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  letter-spacing: 0.15rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   /* align-items: center; */
 }

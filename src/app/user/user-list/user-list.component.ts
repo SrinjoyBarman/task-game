@@ -18,12 +18,12 @@ import { Users } from '../types';
   styleUrl: './user-list.component.css',
 })
 export class UserListComponent {
-  @Input({ required: true }) users!: Users[];
-  @Input({ required: true }) selectedUserName!: string | null;
+  @Input({ required: true }) users?: Users[];
+  @Input({ required: true }) selectedUser?: Users;
   //normal users assignment
 
   //legacy
-  @Output() selectUser = new EventEmitter<string>();
+  @Output() selectUser = new EventEmitter<Users>();
 
   //new
   // setUser = output<string>();
@@ -42,9 +42,10 @@ export class UserListComponent {
   get imagePath(): string {
     return '';
   }
+
   //use the above as a property - "imagePath"
 
-  onclick = (user: string) => {
+  onclick = (user: Users) => {
     //normal set
     // this.selectedUserName = user;
 

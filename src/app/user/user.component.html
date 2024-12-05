@@ -3,13 +3,13 @@
     <app-user-list
       [users]="users"
       (selectUser)="selectUser($event)"
-      [selectedUserName]="selectedUser"
+      [selectedUser]="selectedUser"
     />
   </div>
   <div class="taskList" *ngIf="isModalOpen">
     <div class="task-content">
       <span class="close-button" (click)="closeModal()">&times;</span>
-      <app-task-list [selectedUserName]="selectedUser" />
+      <app-task-list [selectedUser]="selectedUser" [users]="users" />
     </div>
   </div>
 </main>

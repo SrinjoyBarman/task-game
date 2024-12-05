@@ -1,15 +1,14 @@
 <ul>
-  <li *ngFor="let user of users" (click)="onclick(user.name)">
-    <!--below, we are calling the selectedUserNameId computed prop with () to read the computed property as a side effect of a signal --->
-    <!-- <p>{{ user.id === selectedUserNameId() ? user.id : "" }}</p> -->
-
-    <!--below, we are calling the selectedUserName with () to read the signal --->
-    <p
-      [ngStyle]="{
-        'background-color': user.name === selectedUserName ? 'black' : 'inherit'
-      }"
-    >
+  @for(user of users; track user.id){ @if(!!user.name){
+  <li
+    [ngStyle]="{
+      'background-color': user.name === selectedUser?.name ? 'purple' : ''
+    }"
+    (click)="onclick(user)"
+  >
+    <p>
       {{ user.name }}
     </p>
   </li>
+  } }
 </ul>

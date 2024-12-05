@@ -1,0 +1,33 @@
+textarea {
+  display: flex;
+  /* width: 100%; */
+  height: 100px;
+  overflow-y: auto;
+  resize: none;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+}
+
+.completeBtn {
+  width: 100px;
+  margin-top: 10px;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.completeBtn:hover {
+  background-color: #9f079f;
+}
+
+.date {
+  margin-bottom: 10px;
+  color: #ffffffa8;
+  font-size: 13px;
+}

@@ -1,0 +1,13 @@
+@if(task){
+<section class="task">
+  <header style="margin-bottom: -6px; margin-top: 10px">
+    <h4>{{ task.taskName }}</h4>
+  </header>
+  <span class="date">Modified on : {{ formattedDate }}</span>
+  <textarea
+    [value]="task.taskDescription"
+    oninput="this.style.height = '100px';"
+  ></textarea>
+  <button class="completeBtn">Complete</button>
+</section>
+}

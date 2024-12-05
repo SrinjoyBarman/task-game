@@ -10,7 +10,9 @@ main {
 }
 
 .taskList {
-  width: 70%;
+  position: fixed;
+  width: 65%;
+  left: 32%;
 }
 
 @media screen and (max-width: 544px) {
@@ -26,13 +28,13 @@ main {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: hidden; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
   }
   .task-content {
     background-color: rgba(0, 0, 0, 0.5);
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 0px 20px 20px 20px;
+    padding: 0px 6px 20px 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px; /* Limits the width on larger screens */
@@ -47,11 +49,4 @@ main {
     font-weight: bold;
     cursor: pointer;
   }
-
-  /* .close-button:hover,
-  .close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  } */
 }

@@ -1,5 +1,15 @@
-<div class="taskCard">
-  <p>{{ selectedUserName }}</p>
-  <p>Some description that may come</p>
-  <p>Some description that may come</p>
-</div>
+<section class="taskCard">
+  @if(selectedUser && selectedUser.name){
+  <div class="sectionHeader">
+    <app-section-header [title]="taskTitle" />
+    <button class="addTaskBtn">Add task</button>
+  </div>
+  @if(taskList && taskList.length>0){ @for (task of taskList; track task.taskId)
+  {
+  <app-task-card [task]="task" />
+  } }@else {
+  <app-error-message message="No tasks for this {{ selectedUser.name }}" />
+  } } @else {
+  <app-error-message message="Something went wrong!" />
+  }
+</section>

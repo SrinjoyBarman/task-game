@@ -1,9 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserListComponent } from './user-list/user-list.component';
 import { DUMMY_USERS } from './user-list/models/user-model';
-import { Users } from './types';
 import { TaskListComponent } from './task-list/task-list.component';
 import { CommonModule } from '@angular/common';
+import { Users } from './types';
 
 @Component({
   selector: 'app-user',
@@ -12,20 +12,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  users = DUMMY_USERS;
-  selectedUser: string | null = null;
+  users: Users[] = DUMMY_USERS;
+  selectedUser?: Users;
   isModalOpen = !!this.selectedUser;
-
-  @ViewChild('taskList') modal!: ElementRef;
 
   closeModal() {
     this.isModalOpen = false;
-    this.selectedUser = null;
+    this.selectedUser = undefined;
   }
 
-  selectUser(userName: string) {
-    console.log(userName, 'helooooooo');
-    this.selectedUser = userName;
+  selectUser(user: Users) {
+    this.selectedUser = user;
     this.isModalOpen = true;
   }
 }

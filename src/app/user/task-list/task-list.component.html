@@ -2,13 +2,18 @@
   @if(selectedUser && selectedUser.name){
   <div class="sectionHeader">
     <app-section-header [title]="taskTitle" />
-    <button class="addTaskBtn">Add task</button>
+    <button class="addTaskBtn" (click)="onAddTask()">Add task</button>
   </div>
+
   @if(taskList && taskList.length>0){ @for (task of taskList; track task.taskId)
   {
-  <app-task-card [task]="task" />
+  <app-task-card
+    [task]="task"
+    (completedTaskId)="setCompletedTaskId($event)"
+    (removedTaskId)="removeTask($event)"
+  />
   } }@else {
-  <app-error-message message="No tasks for this {{ selectedUser.name }}" />
+  <app-error-message message="No tasks for {{ selectedUser.name }}" />
   } } @else {
   <app-error-message message="Something went wrong!" />
   }

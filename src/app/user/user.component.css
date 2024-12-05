@@ -1,6 +1,6 @@
 main {
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
 }
@@ -13,6 +13,10 @@ main {
   position: fixed;
   width: 65%;
   left: 32%;
+}
+
+.close-button {
+  display: none;
 }
 
 @media screen and (max-width: 544px) {
@@ -43,6 +47,7 @@ main {
   }
 
   .close-button {
+    display: block;
     color: #aaa;
     float: right;
     font-size: 28px;

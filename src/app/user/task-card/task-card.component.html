@@ -1,13 +1,36 @@
-@if(task){
+@if(updatedTask){
 <section class="task">
-  <header style="margin-bottom: -6px; margin-top: 10px">
-    <h4>{{ task.taskName }}</h4>
+  <header
+    style="
+      margin-bottom: -6px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+    "
+  >
+    <textarea
+      placeholder="Add title..."
+      (input)="onChange($event, 'title')"
+      class="taskTitle"
+      [value]="updatedTask.taskName"
+    ></textarea>
+    <span (click)="removeTask()">
+      <mat-icon style="cursor: pointer; color: violet">delete</mat-icon>
+    </span>
   </header>
-  <span class="date">Modified on : {{ formattedDate }}</span>
+  <time class="date">Modified on : {{ formattedDate }}</time>
   <textarea
-    [value]="task.taskDescription"
+    placeholder="Add description..."
+    (input)="onChange($event, 'description')"
+    class="taskDescription"
+    [value]="updatedTask.taskDescription"
     oninput="this.style.height = '100px';"
   ></textarea>
-  <button class="completeBtn">Complete</button>
+  @if(updatedTask.taskName || updatedTask.taskDescription){
+  @if(showUpdateTaskButton){
+  <button class="completeBtn" (click)="onUpdate()">Save</button>
+  } @else{
+  <button class="completeBtn" (click)="onComplete()">Complete</button>
+  }}
 </section>
 }
